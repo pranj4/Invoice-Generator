@@ -30,8 +30,12 @@ export default function Login() {
     try {
       await axios.post("http://localhost:5000/api/auth/login", form);
       navigate("/AddProducts"); // Redirect to Add Products page after login
-    } catch (err: any) {
-      setError(err.response?.data?.message || "Login failed");
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        setError(err.response?.data?.message || "Login failed");
+      } else {
+        setError("Login failed");
+      }
     }
   };
 

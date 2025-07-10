@@ -26,8 +26,12 @@ export default function Register() {
     try {
       await axios.post("http://localhost:5000/api/auth/register", form);
       navigate("/login");
-    } catch (err: any) {
-      setError(err.response?.data?.message || "Registration failed");
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        setError(err.response?.data?.message || "Registration failed");
+      } else {
+        setError("Registration failed");
+      }
     }
   };
 
