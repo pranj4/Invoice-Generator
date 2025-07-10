@@ -4,6 +4,8 @@ import { Button } from "../components/ui/button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
+
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
