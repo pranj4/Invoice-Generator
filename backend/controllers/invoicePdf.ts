@@ -172,7 +172,7 @@ export const generatePdf = async (req: Request, res: Response) => {
             <td>${p.name}</td>
             <td>${p.quantity}</td>
             <td>${p.rate}</td>
-            <td>USD ${p.rate * p.quantity}</td>
+            <td> ₹ ${p.rate * p.quantity}</td>
           </tr>
         `).join("")}
       </tbody>

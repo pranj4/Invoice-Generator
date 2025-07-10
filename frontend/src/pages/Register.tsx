@@ -50,14 +50,13 @@ export default function Register() {
       </nav>
 
       {/* Main Content */}
-      <div className="flex flex-1 items-center justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-5xl bg-zinc-900 rounded-xl shadow-xl overflow-hidden">
+      <div className="flex flex-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full">
           {/* Form Section */}
           <div className="p-10 space-y-4 flex flex-col justify-center">
             <h1 className="text-3xl font-bold mb-2">Sign up to begin journey</h1>
             <p className="text-zinc-400 text-sm mb-6">
-              This is basic signup page which is used for levitation assignment
-              purpose.
+              Enter your details to sign-up 
             </p>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
@@ -115,7 +114,7 @@ export default function Register() {
             </form>
           </div>
           {/* Image Section */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-start pt-15">
             <img
               src="/signup.png"
               alt="Banner"

@@ -4,7 +4,7 @@ import { Button } from "../components/ui/button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const images = ["/1.png", "/2.jpg"]; 
+const images = ["/1.png", "/2.jpg"];
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -79,7 +79,7 @@ export default function Login() {
             </div>
             <h1 className="text-4xl font-bold mb-3">Let the Journey Begin!</h1>
             <p className="text-zinc-400 text-base mb-8">
-              This is basic login page which is used for levitation assignment purpose.
+              Enter your email and Password to login .
             </p>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
@@ -92,7 +92,7 @@ export default function Login() {
                   className="bg-zinc-800 border-zinc-700 text-lg py-3"
                 />
                 <span className="text-xs text-zinc-400">
-                  This email will be displayed with your inquiry
+                  
                 </span>
               </div>
               <div>
