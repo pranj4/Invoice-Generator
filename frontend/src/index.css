@@ -1,9 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "tailwindcss/preflight";
+@tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
+/* Theme variables moved from @theme inline */
+:root {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -110,11 +111,4 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+/* @tailwind directives removed because Tailwind CSS is not being processed */
