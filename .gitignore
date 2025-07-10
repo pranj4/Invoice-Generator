@@ -5,6 +5,9 @@ frontend/node_modules/
 # Env files
 *.env
 
+dist/
+build/
+.next/
 
 .next/
 .DS_Store
