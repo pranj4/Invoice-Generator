@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -22,11 +22,10 @@ export default function Register() {
     if (e) e.preventDefault();
     if (!form.name || !form.email || !form.password)
       return setError("All fields are required");
-    if (!validateEmail(form.email))
-      return setError("Invalid email format");
+    if (!validateEmail(form.email)) return setError("Invalid email format");
 
     try {
-      await axios.post("http://localhost:5000/api/auth/register", form);
+      await axios.post(`${apiUrl}/api/auth/register`, form);
       navigate("/login");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
@@ -42,7 +41,11 @@ export default function Register() {
       {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-4 bg-gradient-to-r from-zinc-900 to-zinc-800">
         <div className="flex items-center gap-2">
-          <img src="/logo-light1.png" alt="Levitation Logo" className="h-8 w-8" />
+          <img
+            src="/logo-light1.png"
+            alt="Levitation Logo"
+            className="h-8 w-8"
+          />
           <span className="font-bold text-xl tracking-wide">levitation</span>
           <span className="ml-1 text-xs text-zinc-400">infotech</span>
         </div>
@@ -57,12 +60,14 @@ export default function Register() {
 
       {/* Main Content */}
       <div className="flex flex-1">
-          <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full">
           {/* Form Section */}
           <div className="p-10 space-y-4 flex flex-col justify-center">
-            <h1 className="text-3xl font-bold mb-2">Sign up to begin journey</h1>
+            <h1 className="text-3xl font-bold mb-2">
+              Sign up to begin journey
+            </h1>
             <p className="text-zinc-400 text-sm mb-6">
-              Enter your details to sign-up 
+              Enter your details to sign-up
             </p>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>

@@ -1,9 +1,10 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
-import { Input } from "../components/ui/input";
-import { Button } from "../components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_API_URL;
 export default function Register() {
     const [form, setForm] = useState({ name: "", email: "", password: "" });
     const [error, setError] = useState("");
@@ -21,7 +22,7 @@ export default function Register() {
         if (!validateEmail(form.email))
             return setError("Invalid email format");
         try {
-            await axios.post("http://localhost:5000/api/auth/register", form);
+            await axios.post(`${apiUrl}/api/auth/register`, form);
             navigate("/login");
         }
         catch (err) {

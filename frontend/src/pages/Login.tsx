@@ -26,9 +26,11 @@ export default function Login() {
 
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    if (!form.email || !form.password) return setError("All fields are required");
+    if (!form.email || !form.password)
+      return setError("All fields are required");
     try {
-      await axios.post("http://localhost:5000/api/auth/login", form);
+      const apiUrl = import.meta.env.VITE_API_URL;
+      await axios.post(`${apiUrl}/api/auth/login`, form);
       navigate("/AddProducts"); // Redirect to Add Products page after login
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
@@ -44,7 +46,11 @@ export default function Login() {
       {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-4 bg-gradient-to-r from-zinc-900 to-zinc-800">
         <div className="flex items-center gap-2">
-          <img src="/logo-light1.png" alt="Levitation Logo" className="h-8 w-8" />
+          <img
+            src="/logo-light1.png"
+            alt="Levitation Logo"
+            className="h-8 w-8"
+          />
           <span className="font-bold text-xl tracking-wide">levitation</span>
           <span className="ml-1 text-xs text-zinc-400">infotech</span>
         </div>
@@ -77,8 +83,14 @@ export default function Login() {
           {/* Form Section */}
           <div className="p-16 space-y-6 flex flex-col justify-center min-h-[600px]">
             <div className="flex items-center gap-2 mb-4 md:hidden">
-              <img src="/logo-light1.png" alt="Levitation Logo" className="h-10 w-10" />
-              <span className="font-bold text-2xl tracking-wide">levitation</span>
+              <img
+                src="/logo-light1.png"
+                alt="Levitation Logo"
+                className="h-10 w-10"
+              />
+              <span className="font-bold text-2xl tracking-wide">
+                levitation
+              </span>
               <span className="ml-1 text-sm text-zinc-400">infotech</span>
             </div>
             <h1 className="text-4xl font-bold mb-3">Let the Journey Begin!</h1>
@@ -95,9 +107,7 @@ export default function Login() {
                   onChange={handleChange}
                   className="bg-zinc-800 border-zinc-700 text-lg py-3"
                 />
-                <span className="text-xs text-zinc-400">
-                  
-                </span>
+                <span className="text-xs text-zinc-400"></span>
               </div>
               <div>
                 <label className="block mb-2 text-lg">Current Password</label>
@@ -118,7 +128,10 @@ export default function Login() {
                 >
                   Login now
                 </Button>
-                <span className="text-base text-zinc-400 cursor-pointer hover:underline" onClick={() => navigate("/forgot-password")}>
+                <span
+                  className="text-base text-zinc-400 cursor-pointer hover:underline"
+                  onClick={() => navigate("/forgot-password")}
+                >
                   Forget password ?
                 </span>
               </div>

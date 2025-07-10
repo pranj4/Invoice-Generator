@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect } from "react";
-import { Input } from "../components/ui/input";
-import { Button } from "../components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const images = ["/1.png", "/2.jpg"];
@@ -27,7 +27,8 @@ export default function Login() {
         if (!form.email || !form.password)
             return setError("All fields are required");
         try {
-            await axios.post("http://localhost:5000/api/auth/login", form);
+            const apiUrl = import.meta.env.VITE_API_URL;
+            await axios.post(`${apiUrl}/api/auth/login`, form);
             navigate("/AddProducts"); // Redirect to Add Products page after login
         }
         catch (err) {

@@ -30,10 +30,12 @@ export default function AddProducts() {
     setForm({ name: "", price: "", quantity: "" });
   };
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const handleGeneratePDF = async () => {
     const token = localStorage.getItem("token"); // Make sure you store your JWT as 'token'
     try {
-      const res = await fetch("http://localhost:5000/api/generate-pdf", {
+      const res = await fetch(`${apiUrl}/api/generate-pdf`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +71,11 @@ export default function AddProducts() {
       {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-4 bg-gradient-to-r from-zinc-900 to-zinc-800">
         <div className="flex items-center gap-2">
-          <img src="/logo-light1.png" alt="Levitation Logo" className="h-8 w-8" />
+          <img
+            src="/logo-light1.png"
+            alt="Levitation Logo"
+            className="h-8 w-8"
+          />
           <span className="font-bold text-xl tracking-wide">levitation</span>
           <span className="ml-1 text-xs text-zinc-400">infotech</span>
         </div>
@@ -140,16 +146,23 @@ export default function AddProducts() {
           <table className="w-full text-left">
             <thead>
               <tr className="bg-zinc-800 text-white">
-                <th className="py-3 px-4 font-semibold">Product name <span>↑</span></th>
+                <th className="py-3 px-4 font-semibold">
+                  Product name <span>↑</span>
+                </th>
                 <th className="py-3 px-4 font-semibold">Price</th>
-                <th className="py-3 px-4 font-semibold">Quantity <span>↓</span></th>
+                <th className="py-3 px-4 font-semibold">
+                  Quantity <span>↓</span>
+                </th>
                 <th className="py-3 px-4 font-semibold">Total Price</th>
               </tr>
             </thead>
             <tbody>
               {products.length === 0 && (
                 <tr>
-                  <td colSpan={4} className="py-6 px-4 text-center text-zinc-500">
+                  <td
+                    colSpan={4}
+                    className="py-6 px-4 text-center text-zinc-500"
+                  >
                     No products added yet.
                   </td>
                 </tr>
@@ -166,12 +179,26 @@ export default function AddProducts() {
               {products.length > 0 && (
                 <>
                   <tr className="border-t border-zinc-800">
-                    <td colSpan={3} className="py-3 px-4 text-right font-semibold">Sub-Total</td>
-                    <td className="py-3 px-4 font-semibold">INR {subTotal.toFixed(2)}</td>
+                    <td
+                      colSpan={3}
+                      className="py-3 px-4 text-right font-semibold"
+                    >
+                      Sub-Total
+                    </td>
+                    <td className="py-3 px-4 font-semibold">
+                      INR {subTotal.toFixed(2)}
+                    </td>
                   </tr>
                   <tr>
-                    <td colSpan={3} className="py-3 px-4 text-right font-semibold">Incl + GST 18%</td>
-                    <td className="py-3 px-4 font-semibold">INR {total.toFixed(2)}</td>
+                    <td
+                      colSpan={3}
+                      className="py-3 px-4 text-right font-semibold"
+                    >
+                      Incl + GST 18%
+                    </td>
+                    <td className="py-3 px-4 font-semibold">
+                      INR {total.toFixed(2)}
+                    </td>
                   </tr>
                 </>
               )}

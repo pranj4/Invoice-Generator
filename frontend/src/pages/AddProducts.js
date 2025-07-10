@@ -22,10 +22,11 @@ export default function AddProducts() {
         ]);
         setForm({ name: "", price: "", quantity: "" });
     };
+    const apiUrl = import.meta.env.VITE_API_URL;
     const handleGeneratePDF = async () => {
         const token = localStorage.getItem("token"); // Make sure you store your JWT as 'token'
         try {
-            const res = await fetch("http://localhost:5000/api/generate-pdf", {
+            const res = await fetch(`${apiUrl}/api/generate-pdf`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
