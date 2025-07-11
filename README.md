@@ -17,6 +17,26 @@ A full-stack web application that allows users to:
 
 ---
 
+## PROJECT DEMO
+
+
+![Demo](https://github.com/user-attachments/assets/370ea1d2-c8f8-4547-9bf6-44c769a7bd78)
+
+![demo2](https://github.com/user-attachments/assets/66ac759d-b9c0-4c03-8d08-50e9b06361ec)
+
+![demo3](https://github.com/user-attachments/assets/94166712-8924-43bd-adc8-fde49a248fde)
+
+
+
+
+# SAMPLE INVOICE OUTPUT
+
+<img width="852" height="898" alt="image" src="https://github.com/user-attachments/assets/b2caa396-dcb8-48d3-8e6b-3b8b56b77492" />
+
+
+
+---
+
 ## 🚀 Features
 
 - 🔐 JWT-based Authentication (Login/Register)
@@ -71,14 +91,13 @@ npm run dev
 
 ---
 
-## 📄 Sample Invoice
-![Invoice Screenshot](./assets/invoice-sample.png)
+
 
 ---
 
 ## 📤 Deployment
-- **Frontend**: [Vercel](https://vercel.com)
-- **Backend**: [Render](https://render.com)
+- **Frontend**: [Vercel](invoice-generator-fry6wh8qo-pranjals-projects-f57b5a0c.vercel.app)
+- **Backend**: [Render](https://invoice-generator-0z8g.onrender.com)
 
 ---
 
